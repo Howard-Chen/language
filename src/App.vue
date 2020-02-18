@@ -1,19 +1,32 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app"> 
+    <button @click="changeLan" >switch language</button>
+    <Page :lan='language' :name='stockName'/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Page from './components/Page.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Page
+  },
+  data:function(){
+    return{
+      language:'ch',
+      stockName:'矽格'
+    }
+  },
+  methods:{
+    changeLan:function(){      
+      this.language == 'ch'? this.language='en': this.language='ch'
+    }
+
   }
 }
+
 </script>
 
 <style>
